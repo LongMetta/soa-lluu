@@ -32,7 +32,7 @@ const ActivityIcon = ({
   label,
   className = "",
 }: ActivityIconProps) => (
-  <div className={`flex flex-col items-center ${className}`}>
+  <div className={`flex flex-col items-center text-center ${className}`}>
     <Image
       src={src}
       alt={alt}

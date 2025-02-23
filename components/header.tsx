@@ -81,7 +81,8 @@ function HeaderContent() {
   const menuItems = data?.[0]?.head_menu ?? [];
 
   const MobileMenu = () => (
-    <div className="lg:hidden px-3">
+    <div className="md:hidden px-3 flex items-center gap-1">
+      <div className="block md:hidden">{renderSelectLanguage()}</div>
       <Sheet>
         <SheetTrigger asChild>
           <Button
@@ -112,8 +113,8 @@ function HeaderContent() {
   );
 
   const DesktopNav = () => (
-    <nav className="hidden lg:flex mx-auto justify-center flex-1">
-      <div className="flex  md:space-x-10 xl:space-x-20  whitespace-nowrap items-center">
+    <nav className="hidden md:flex mx-auto justify-center flex-1">
+      <div className="flex  md:space-x-5 xl:space-x-20  whitespace-nowrap items-center">
         {menuItems.map((item) => (
           <NavLink key={item} href="#">
             {item}
@@ -123,8 +124,8 @@ function HeaderContent() {
     </nav>
   );
 
-  const RightIcons = () => (
-    <div className="items-center gap-5 hidden lg:flex">
+  const renderSelectLanguage = () => {
+    return (
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
           <Button
@@ -156,20 +157,28 @@ function HeaderContent() {
           </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
-      <IconButton src="/icon/moutains-white.svg" alt="Mountains" />
-      <IconButton src="/icon/fishing-white.svg" alt="Fishing" />
-      <IconButton src="/icon/crosshair-white.svg" alt="Crosshair" />
-      <Button
-        className="hidden lg:flex bg-[#F2542D] text-white rounded-full px-8 relative hover:rotate-3 hover:bg-[#F2542D]/80"
-        aria-label="Action button"
-      >
-        <IconButton
-          src="/icon/move-up-right.svg"
-          alt="Arrow"
-          size={12}
-          className="absolute left-8"
-        />
-      </Button>
+    );
+  };
+
+  const RightIcons = () => (
+    <div className="items-center gap-5 hidden md:flex">
+      {renderSelectLanguage()}
+      <div className="gap-5 hidden md:flex">
+        <IconButton src="/icon/moutains-white.svg" alt="Mountains" />
+        <IconButton src="/icon/fishing-white.svg" alt="Fishing" />
+        <IconButton src="/icon/crosshair-white.svg" alt="Crosshair" />
+        <Button
+          className="flex bg-[#F2542D] text-white rounded-full px-8 relative hover:rotate-3 hover:bg-[#F2542D]/80"
+          aria-label="Action button"
+        >
+          <IconButton
+            src="/icon/move-up-right.svg"
+            alt="Arrow"
+            size={12}
+            className="absolute left-8"
+          />
+        </Button>
+      </div>
     </div>
   );
 
