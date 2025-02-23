@@ -156,9 +156,9 @@ function HeaderContent() {
           </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
-      <IconButton src="/icon/moutains.svg" alt="Mountains" />
-      <IconButton src="/icon/fishing.svg" alt="Fishing" />
-      <IconButton src="/icon/crosshair.svg" alt="Crosshair" />
+      <IconButton src="/icon/moutains-white.svg" alt="Mountains" />
+      <IconButton src="/icon/fishing-white.svg" alt="Fishing" />
+      <IconButton src="/icon/crosshair-white.svg" alt="Crosshair" />
       <Button
         className="hidden lg:flex bg-[#F2542D] text-white rounded-full px-8 relative hover:rotate-3 hover:bg-[#F2542D]/80"
         aria-label="Action button"

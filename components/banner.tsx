@@ -58,9 +58,9 @@ const ActivityIcons = ({
   className = "",
 }: ActivityIconsProps) => {
   const icons = [
-    { src: "/icon/moutains.svg", alt: "Mountains" },
-    { src: "/icon/fishing.svg", alt: "Fishing" },
-    { src: "/icon/crosshair.svg", alt: "Crosshair" },
+    { src: "/icon/moutains-white.svg", alt: "Mountains" },
+    { src: "/icon/fishing-white.svg", alt: "Fishing" },
+    { src: "/icon/crosshair-white.svg", alt: "Crosshair" },
   ];
 
   return (
