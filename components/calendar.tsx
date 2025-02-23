@@ -80,7 +80,7 @@ export function Calendar({ currentMonth, selectedDate, onSelectDate }: CalendarP
             >
               <span className="text-lg font-medium">{dayOfMonth}</span>
               {isCurrentMonth && (
-                <span className={`text-sm ${isOccupied ? "text-gray-400" : "text-[#E85C3F]"}`}>
+                <span className={`md:text-sm text-xs ${isOccupied ? "text-gray-400" : "text-[#E85C3F]"}`}>
                   {isOccupied ? "Occupé" : "Libre"}
                 </span>
               )}
