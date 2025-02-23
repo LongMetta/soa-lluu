@@ -15,6 +15,7 @@ import {
 import { useEffect, useState, Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { getData } from "@/api/utils";
+import Loading from "@/components/Loading";
 
 interface NavLinkProps {
   href: string;
@@ -52,7 +53,13 @@ const IconButton = ({
 
 export function Header() {
   return (
-    <Suspense fallback={<div>Loading header...</div>}>
+    <Suspense
+      fallback={
+        <div className="h-dvh flex justify-center">
+          <Loading />
+        </div>
+      }
+    >
       <HeaderContent />
     </Suspense>
   );

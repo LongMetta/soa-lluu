@@ -12,8 +12,8 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "Luu tu Long | Project | Test",
-  description: "Project by Luu Tu Long",
+  title: "Long Luu | Project | SOA",
+  description: "Project by Long Luu",
 };
 
 export default async function RootLayout({
