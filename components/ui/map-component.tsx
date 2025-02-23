@@ -151,15 +151,15 @@ const MapComponent = ({ data }: { data: AppTypes.Data[] }) => {
     event: React.MouseEvent<HTMLImageElement, MouseEvent>
   ) => {
     const rect = mapRef.current?.getBoundingClientRect();
-    if (!rect) return;
+    if (!rect || !mapRef.current) return;
 
     const x = event.clientX - rect.left;
     const y = event.clientY - rect.top;
 
     const scaleX =
-      mapSize.width / (mapRef.current.offsetWidth || mapSize.width);
+      mapSize.width / (mapRef.current?.offsetWidth || mapSize.width);
     const scaleY =
-      mapSize.height / (mapRef.current.offsetHeight || mapSize.height);
+      mapSize.height / (mapRef.current?.offsetHeight || mapSize.height);
 
     const newPoint = {
       id: Date.now(),
@@ -196,10 +196,13 @@ const MapComponent = ({ data }: { data: AppTypes.Data[] }) => {
   useLayoutEffect(() => {
     if (mapRef.current) {
       const updateSize = () => {
-        setMapSize({
-          width: mapRef.current.naturalWidth,
-          height: mapRef.current.naturalHeight,
-        });
+        if (mapRef.current) {
+          // Add null check here
+          setMapSize({
+            width: mapRef.current.naturalWidth,
+            height: mapRef.current.naturalHeight,
+          });
+        }
       };
       updateSize();
       window.addEventListener("resize", updateSize);
@@ -275,7 +278,7 @@ const MapComponent = ({ data }: { data: AppTypes.Data[] }) => {
                 <ReactTooltip
                   id={`tooltip-${point.id}`}
                   place="top"
-                  content={
+                  render={() => (
                     <div className="max-w-[200px] p-2 rounded-xl shadow-md text-sm">
                       <p>Name: {point.name}</p>
                       <p>
@@ -284,7 +287,7 @@ const MapComponent = ({ data }: { data: AppTypes.Data[] }) => {
                       <p>Activities: {point.activities.join(", ")}</p>
                       <p>Rental Suggestions: House A, House B, House C</p>
                     </div>
-                  }
+                  )}
                   style={{ zIndex: 100000000 }}
                 />
               </motion.div>
